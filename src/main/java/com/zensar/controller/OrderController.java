@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zensar.dto.XmlOrderDto;
 import com.zensar.service.OrderService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("order")
 public class OrderController {
@@ -23,6 +25,7 @@ public class OrderController {
 	
 	
 	@PutMapping("/update/order_status/{orderID}/{orderStatus}")
+	@ApiOperation(value = "Update Order Status")
 	public ResponseEntity<String> updateOrderStatus(@PathVariable("orderID") int orderID, @PathVariable String orderStatus) {
 	    return orderService.updateOrderStatus(orderID, orderStatus);
 	}
